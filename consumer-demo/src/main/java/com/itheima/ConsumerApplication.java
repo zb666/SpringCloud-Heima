@@ -9,15 +9,15 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+//@EnableDiscoveryClient
 @SpringCloudApplication
-@EnableDiscoveryClient
 public class ConsumerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ConsumerApplication.class,args);
     }
 
-    //消费方的服务器去均衡的消费
+    //因为请求是发送到Consumer这里来的，所以我们的负载均衡针对的是Consumer的服务器
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate(){
