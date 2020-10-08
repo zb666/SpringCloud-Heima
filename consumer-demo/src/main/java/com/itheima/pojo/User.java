@@ -6,6 +6,7 @@ import java.util.Date;
 
 @Data
 public class User {
+
     private Long id;
 
     // 用户名

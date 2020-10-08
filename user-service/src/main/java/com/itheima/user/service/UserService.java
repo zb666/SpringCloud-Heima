@@ -15,7 +15,4 @@ public class UserService {
         return userMapper.selectByPrimaryKey(id);
     }
 
-
-
-
 }
