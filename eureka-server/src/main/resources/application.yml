@@ -1,5 +1,5 @@
 server:
-  port: 10086
+  port: ${port:10086}
 spring:
   application:
     name: eureka-server # 这是服务的名称
@@ -12,3 +12,9 @@ eureka:
     register-with-eureka: false
     # 不拉取服务
     fetch-registry: false
+  server:
+    # 服务失效剔除时间间隔，默认是60S
+    eviction-interval-timer-in-ms: 60000
+    #关闭自我保护模型
+    enable-self-preservation: false
+

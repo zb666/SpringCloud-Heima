@@ -26,13 +26,14 @@ public class ConsumerController {
     public User queryById(@PathVariable Long id){
 //        String url = "http://localhost:9091/user/8";
 //        return restTemplate.getForObject(url,User.class);
-        List<ServiceInstance> serviceInstanceList = discoveryClient.getInstances("user-service");
-        ServiceInstance instance = serviceInstanceList.get(0);
-        StringBuilder userServiceUrl = new StringBuilder().append("http://").append(instance.getHost()).append(":")
-                .append(instance.getPort())
-                .append("/user/")
-                .append(id);
-        return restTemplate.getForObject(userServiceUrl.toString(),User.class);
+//        List<ServiceInstance> serviceInstanceList = discoveryClient.getInstances("user-service");
+//        ServiceInstance instance = serviceInstanceList.get(0);
+//        StringBuilder userServiceUrl = new StringBuilder().append("http://").append(instance.getHost()).append(":")
+//                .append(instance.getPort())
+//                .append("/user/")
+//                .append(id);
+        String url = "http://user-service/user/"+id;
+        return restTemplate.getForObject(url.toString(),User.class);
     }
 
 }
