@@ -39,7 +39,7 @@ public class ConsumerController {
             throw new RuntimeException("太忙了");
         }
         String userServiceUrl = "http://user-service/user/"+id;
-        return "Result";//restTemplate.getForObject(userServiceUrl,String.class);
+        return restTemplate.getForObject(userServiceUrl,String.class);
     }
 
     public String queryIdFallback(Long id){

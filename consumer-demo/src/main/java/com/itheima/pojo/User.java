@@ -7,10 +7,10 @@ import java.util.Date;
 @Data
 public class User {
 
-    private Long id;
+    public Long id;
 
     // 用户名
-    private String userName;
+    public String userName;
 
     // 密码
     private String password;

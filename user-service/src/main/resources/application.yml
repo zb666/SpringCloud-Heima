@@ -1,25 +1,25 @@
-server:
-  port: ${port:9091}
 spring:
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springcloud
-    username: root
-    password: root
-  application:
-    name: user-service # 这是服务的名称
-mybatis:
-  type-aliases-package: com.itheima.user.pojo
+  cloud:
+    config:
+      # 要与仓库中的配置文件的application保持一致
+      name: user
+      # 要与仓库中的配置文件的profile保持一致
+      profile: dev
+      # 要与仓库中的配置文件所属的版本（分支）一样
+      label: master
+      discovery:
+        # 使用配置中心
+        enabled: true
+        # 配置中心服务名
+        service-id: config-server
+  # 配置rabbitmq信息；如果是都与默认值一致则不需要配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
 eureka:
   client:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
-  instance:
-    # 更倾向使用ip地址，而不是host名
-    prefer-ip-address: true
-    # ip地址
-    ip-address: 127.0.0.1
-    # 续约间隔，默认30秒
-    lease-renewal-interval-in-seconds: 5
-    # 服务失效时间，默认90秒
-    lease-expiration-duration-in-seconds: 5
